@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import grocer from '../Assets/shopping-bag.png'
 import Axios from 'axios';
 import './index.css';
 
@@ -63,7 +64,7 @@ function App() {
   return (
     <>
       <div className='Header'>
-        <h1>Grocers</h1>
+        <h1>Grocers</h1><img src={grocer} alt='Grocery icon' />
       </div>
       <div className="App">
         <label htmlFor="name">Enter Food Item</label>
