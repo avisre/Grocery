@@ -14,18 +14,18 @@ function App() {
   const [editMetric, setEditMetric] = useState('');
 
   useEffect(() => {
-    Axios.get('https://grocery-pbvd.onrender.com/read').then((response) => {
+    Axios.get('https://cyan-mushy-panther.cyclic.app/read').then((response) => {
       setList(response.data);
     });
   }, []);
 
   const add = async () => {
-    await Axios.post('https://grocery-pbvd.onrender.com/insert', {
+    await Axios.post('https://cyan-mushy-panther.cyclic.app/insert', {
       count: count,
       num: num,
       metric: metric
     });
-    const response = await Axios.get('https://grocery-pbvd.onrender.com/read');
+    const response = await Axios.get('https://cyan-mushy-panther.cyclic.app/read');
     setList(response.data);
     setCount('');
     setNum(0);
@@ -34,13 +34,13 @@ function App() {
 
   const updateFood = async (id) => {
     try {
-      await Axios.put('https://grocery-pbvd.onrender.com/update', {
+      await Axios.put('https://cyan-mushy-panther.cyclic.app/update', {
         id: id,
         name: name,
         quantity: editQuantity,
         metric: editMetric
       });
-      const response = await Axios.get('https://grocery-pbvd.onrender.com/read');
+      const response = await Axios.get('https://cyan-mushy-panther.cyclic.app/read');
       setList(response.data);
       setEditMode({ ...editMode, [id]: false });
       setName('');
@@ -53,8 +53,8 @@ function App() {
 
   const deleteFood = async (id) => {
     try {
-      await Axios.delete(`https://grocery-pbvd.onrender.com/delete/${id}`);
-      const response = await Axios.get('https://grocery-pbvd.onrender.com/read');
+      await Axios.delete(`https://cyan-mushy-panther.cyclic.app/delete/${id}`);
+      const response = await Axios.get('https://cyan-mushy-panther.cyclic.app/read');
       setList(response.data);
     } catch (error) {
       console.error('Error deleting food:', error);
